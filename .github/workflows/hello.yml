@@ -6,13 +6,19 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
+
     steps:
       - name: Greet the User
         run: echo "Hello World!"
-steps:
-  - name: Greet the User
-    run: echo "Hello World!"
-  # List all files in the current directory for comparison before and after actions/checkout@v5.
-  - run: ls -l
-  - uses: actions/checkout@v5
-  - run: ls -l
+
+      # List all files before checkout
+      - name: List files before checkout
+        run: ls -l
+
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      # List all files after checkout
+      - name: List files after checkout
+        run: ls -l
